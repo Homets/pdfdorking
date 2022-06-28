@@ -1,0 +1,7 @@
+.com
+.org
+.edu
+.net
+.int
+.gov
+.academy
