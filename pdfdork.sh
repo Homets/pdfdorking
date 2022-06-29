@@ -1,7 +1,7 @@
-	#!/bin/bash
+#!/bin/bash
 
 
-#var
+##Variable
 
 url="https://www.google.com/search?q="
 extension="pdf"
@@ -52,18 +52,20 @@ function checking_site_extension {
 fi
 }
 
+
+#Function for gathering pdf link
 function scrapping {
 
 	page=1
 	target=$1
-	echo $target
 
 
 	request=$(curl -H "$user_agent" "${url}site:%20{$target}+filetype:${extension}${start}${page}" | grep -oP "http.?://\S*.pdf" | sort -u)
 	echo "$request"
 }
 
-##Script
+
+## Start
 
 if [[ $1 = "-h" ]];then
 
@@ -76,7 +78,7 @@ elif [[ -n $1 ]];then
 
 else
 	syntax_error
-	exit 0 
+	exit 0
 fi
 
 
