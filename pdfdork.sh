@@ -115,7 +115,6 @@ elif [[ $2 = "-o" ]] && [[ -n $3 ]];then
 
 elif [[ -n $1 ]];then
 
-	echo "Pdfdork is a script using google advanced search engine for gathering all pdf of a specified website. "
 	checking_site_extension $1
 
 else
