@@ -21,7 +21,7 @@ function syntax_error {
 function help {
 
 	echo "Pdfdork is a script using google advanced search engine for gathering all pdf of a specified website. "
-	echo "usage : ./parsing.sh [ -h | website.com ] [-o output.file ]"
+	echo "usage : ./parsing.sh [ -h | website.com | -o output.file ]"
 	echo "-o: choose the output file"
 	echo "-h: display this command"
 
@@ -64,12 +64,11 @@ function scrapping {
 	page=1
 	target=$1
 
-	while [ $page -ne 15 ]
+	while [[ $page -ne 15 ]]
 	do
-		echo $page
 		request=$(curl -s -H "$user_agent" "${url}site:%20{$target}+filetype:${extension}${start}${page}" | grep -oP "http.?://\S*.pdf" | grep -v "google" | sort -u)
 
-		if [ $2 = "-o" ] && [ -n $3 ];then
+		if [[ "$2" = "-o" ]] && [[ -n "$3" ]];then
 			echo $request
 			echo $request >> $3
 
@@ -88,14 +87,20 @@ function scrapping {
 
 
 ## Start
+	echo ""
+        echo "################################"
+        echo "            PDF DORK            "
+        echo "################################"
+        echo ""
+        echo "Pdfdork is a script using google advanced search engine for gathering all pdf of a specified website. "
+        echo ""
 
 if [[ $1 = "-h" ]];then
 
 	help
 
-elif [ $2 = "-o" ] && [ -n $3 ];then
+elif [[ $2 = "-o" ]] && [[ -n $3 ]];then
 
-	echo "Pdfdork is a script using google advanced search engine for gathering all pdf of a specified website. "
 
 	if [[ -f $3 ]];then
 
