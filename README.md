@@ -1,17 +1,16 @@
-#### PDFDORK
-
+## PDFDORKING
 
 **Pdfdork is a script using google advanced search engine for gathering all pdf of a specified website.**
 
-
-
 *Dorking can be illegal*
+
 
 ```
 usage : ./parsing.sh [ -h | website.com ] [-o output.file ]
 -o: choose the output file
 -h: display this command
 ```
+*Update needed to permit download*
 
 Exemple usage :
 
